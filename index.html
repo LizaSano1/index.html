@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odtwarzacz</title>
-</html>
+</head>
 <body>
   <style>
     body {
@@ -32,6 +32,7 @@
         font-size: 16px;
         margin-right: 10px;
         padding: 5px;
+        width: 100%; /* Nowa linia - rozciąga inputy na całą szerokość */
     }
     
     #genre-filter option {
@@ -46,6 +47,7 @@
         border-radius: 5px;
         font-size: 16px;
         cursor: pointer;
+        width: 100%; /* Nowa linia - rozciąga przycisk na całą szerokość */
     }
     
     #filter-form button:hover {
@@ -99,56 +101,63 @@
         justify-content: center;
     }
 
+    /* Nowe style dla mniejszych ekranów */
+    @media screen and (max-width: 768px) {
+        #genre-filter, #tempo-filter, #dlugosc, #fraza, #filter-form button {
+            width: auto; /* Przywróć domyślną szerokość */
+        }
+        .favorite-button {
+            font-size: 30px; /* Zmniejsz rozmiar ikon serc na mniejszych ekranach */
+        }
+    }
   </style>
-    <h1>Biblioteka audio</h1>
-    <form id="filter-form">
-        <label for="genre-filter">Filtruj po gatunku:</label>
-        <select id="genre-filter">
-          <option value="">Wszystkie</option>
-          <option value="House">House</option>
-          <option value="Rock">Rock</option>
-          <option value="Pop">Pop</option>
-          <option value="R&B">R&B</option>
-          <option value="Techno">Techno</option>
-          <option value="Indie">Indie</option>
-          <option value="Trap">Trap</option>
-          <option value="Drill">Drill</option>
-        </select>
+  <h1>Biblioteka audio</h1>
+  <form id="filter-form">
+    <label for="genre-filter">Filtruj po gatunku:</label>
+    <select id="genre-filter">
+      <option value="">Wszystkie</option>
+      <option value="House">House</option>
+      <option value="Rock">Rock</option>
+      <option value="Pop">Pop</option>
+      <option value="R&B">R&B</option>
+      <option value="Techno">Techno</option>
+      <option value="Indie">Indie</option>
+      <option value="Trap">Trap</option>
+      <option value="Drill">Drill</option>
+    </select>
 
-        <label for="tempo-filter">Filtruj po tempie:</label>
-        <select id="tempo-filter">
-          <option value="">Wszystkie</option>
-          <option value="slow">Wolne</option>
-          <option value="medium">Średnie</option>
-          <option value="fast">Szybkie</option>
-        </select>
+    <label for="tempo-filter">Filtruj po tempie:</label>
+    <select id="tempo-filter">
+      <option value="">Wszystkie</option>
+      <option value="slow">Wolne</option>
+      <option value="medium">Średnie</option>
+      <option value="fast">Szybkie</option>
+    </select>
 
-        <label for="dlugosc">Filtruj według czasu trwania:</label>
-        <select id="dlugosc">
-          <option value="">Wszystkie</option>
-          <option value="asc">Rosnąco</option>
-          <option value="desc">Malejąco</option>
-        </select>
+    <label for="dlugosc">Filtruj według czasu trwania:</label>
+    <select id="dlugosc">
+      <option value="">Wszystkie</option>
+      <option value="asc">Rosnąco</option>
+      <option value="desc">Malejąco</option>
+    </select>
+   
+    <label for="fraza">Szukaj po nazwie:</label>
+    <input type="text" id="fraza" placeholder="Wprowadź nazwę">
 
-       
-        <label for="fraza">Szukaj po nazwie:</label>
-        <input type="text" id="fraza" placeholder="Wprowadź nazwę">
+    <button type="submit">Szukaj</button>
+  </form>
 
-        <button type="submit">Szukaj</button>
-      </form>
-
-    
   <table>
     <thead>
-        <tr>
-            <th>Ikona</th>
-            <th>Wykonawca</th>
-            <th>Tytuł</th>
-            <th>Gatunek</th>
-            <th>BPM</th>
-            <th>Czas trwania</th>
-            <th>Ulubione</th> 
-        </tr>
+      <tr>
+        <th>Ikona</th>
+        <th>Wykonawca</th>
+        <th>Tytuł</th>
+        <th>Gatunek</th>
+        <th>BPM</th>
+        <th>Czas trwania</th>
+        <th>Ulubione</th> 
+      </tr>
     </thead>
     <tbody id="table-body">
     </tbody>
