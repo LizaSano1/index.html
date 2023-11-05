@@ -24,30 +24,35 @@
         margin-top: 20px;
     }
     
+    #filter-controls {
+        display: flex;
+        justify-content: space-between; /* Umieszcza przyciski górne na końcach poziomo */
+        align-items: center; /* Wyśrodkowuje elementy poziomo wewnątrz kontenera */
+        background-color: #333;
+        padding: 10px;
+        border-radius: 14px;
+    }
+    
     #genre-filter, #tempo-filter, #dlugosc, #fraza {
         background-color: #333;
         color: #fff;
         border: none;
-        border-radius: 5px;
-        font-size: 16px;
+        border-radius: 14px;
+        font-size: 15px;
         margin-right: 10px;
-        padding: 5px;
-        width: 100%; /* Nowa linia - rozciąga inputy na całą szerokość */
-    }
-    
-    #genre-filter option {
-        background-color: #000;
+        padding: 10px;
+        width: 10%;
     }
     
     #filter-form button {
         background-color: #555;
         color: #fff;
         border: none;
-        padding: 1%;
+        padding: 8px;
         border-radius: 5px;
         font-size: 16px;
         cursor: pointer;
-        width: 100%; /* Nowa linia - rozciąga przycisk na całą szerokość */
+        width: auto;
     }
     
     #filter-form button:hover {
@@ -57,11 +62,12 @@
     table {
         border-collapse: collapse;
         width: 100%;
+        margin-top: 20px; /* Dodaje odstęp między przyciskami górnymi a tabelką */
     }
     
     th, td {
         border: 1px solid #070606;
-        padding: 8px;
+        padding: 12px;
         text-align: left;
     }
     
@@ -70,8 +76,8 @@
     }
     
     table img {
-        max-width: 100px;
-        max-height: 100px;
+        max-width: 150px;
+        max-height: 150px;
     }
     
     table td img {
@@ -94,22 +100,13 @@
     .favorite-button {
         background: none;
         border: none;
-        font-size: 40px;
+        font-size: 35px;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-
-    /* Nowe style dla mniejszych ekranów */
-    @media screen and (max-width: 768px) {
-        #genre-filter, #tempo-filter, #dlugosc, #fraza, #filter-form button {
-            width: auto; /* Przywróć domyślną szerokość */
-        }
-        .favorite-button {
-            font-size: 30px; /* Zmniejsz rozmiar ikon serc na mniejszych ekranach */
-        }
-    }
+    
   </style>
   <h1>Biblioteka audio</h1>
   <form id="filter-form">
