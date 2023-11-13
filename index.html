@@ -41,7 +41,8 @@
         font-size: 15px;
         margin-right: 10px;
         padding: 10px;
-        width: 10%;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     #filter-form button {
@@ -62,7 +63,9 @@
     table {
         border-collapse: collapse;
         width: 100%;
-        margin-top: 20px;}
+        margin-top: 20px;
+        max-width: 100%;
+    }
     
     th, td {
         border: 1px solid #070606;
@@ -75,8 +78,8 @@
     }
     
     table img {
-        max-width: 150px;
-        max-height: 150px;
+      max-width: 100%;
+      height: auto;
     }
     
     table td img {
@@ -104,6 +107,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    @media only screen and (max-width: 600px) {
+      body {
+          font-size: 14px;
+      }
+    }
+    @media only screen and (min-width: 601px) and (max-width: 1024px) {
+      body {
+          font-size: 16px;
+      }
     }
     
   </style>
@@ -383,6 +396,33 @@
         event.target.textContent = "💔";
       }
     }
+async function fetchMusicData() {
+  try {
+    const response = await fetch('url_do_api_z_danymi_muzycznymi');
+    const musicData = await response.json();
+    displaySongs();
+  } catch (error) {
+    console.error('Błąd pobierania danych muzycznych', error);
+  }
+}
+function loadImage(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = (error) => reject(error);
+    img.src = src;
+  });
+}
+async function loadAndDisplayImage(imageUrl) {
+  try {
+    const image = await loadImage(imageUrl);
+  } catch (error) {
+    console.error('Błąd pobierania obrazu', error);
+  }
+}
+fetchMusicData();
+loadAndDisplayImage('url_do_obrazu');
+
   </script>
 </body>
 </html>
