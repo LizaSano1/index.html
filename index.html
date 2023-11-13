@@ -26,8 +26,8 @@
     
     #filter-controls {
         display: flex;
-        justify-content: space-between; /* Umieszcza przyciski górne na końcach poziomo */
-        align-items: center; /* Wyśrodkowuje elementy poziomo wewnątrz kontenera */
+        justify-content: space-between;
+        align-items: center;
         background-color: #333;
         padding: 10px;
         border-radius: 14px;
@@ -62,8 +62,7 @@
     table {
         border-collapse: collapse;
         width: 100%;
-        margin-top: 20px; /* Dodaje odstęp między przyciskami górnymi a tabelką */
-    }
+        margin-top: 20px;}
     
     th, td {
         border: 1px solid #070606;
@@ -358,8 +357,7 @@
             <td>${item.genre}</td>
             <td>${item.bpm}</td>
             <td>${item.duration}</td>
-            <td><button class="favorite-button" data-song-id="${item.id}">❤️</button></td> <!-- Użyj ikony serca jako zawartości przycisku -->
-          `;
+            <td><button class="favorite-button" data-song-id="${item.id}">❤️</button></td> <!-- Użyj ikony serca jako zawartości przycisku -->`;
           const favoriteButton = row.querySelector(".favorite-button");
           favoriteButton.addEventListener("click", toggleFavorite);
           tableBody.appendChild(row);
